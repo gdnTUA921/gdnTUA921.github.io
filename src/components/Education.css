@@ -1,0 +1,63 @@
+.education__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+  max-width: 95%;
+}
+
+.education__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  font-size: 1.5rem;
+  color: var(--clr-green);
+  background-color: var(--clr-green-tint);
+  border-radius: var(--radius-md);
+}
+
+/* Real school logo (replaces the icon placeholder once the file exists) */
+.education__logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  object-fit: contain; /* logos should never be cropped */
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.education__degree {
+  font-size: 1.1rem;
+  color: var(--clr-text);
+  margin-bottom: 0.25rem;
+}
+
+.education__school {
+  color: var(--clr-text-muted);
+}
+
+.education__meta {
+  margin-top: 0.4rem;
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Gold badge for the Summa Cum Laude distinction */
+.education__honors {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--clr-gold-dark);
+  background-color: var(--clr-gold-tint);
+  border: 1px solid var(--clr-gold);
+}

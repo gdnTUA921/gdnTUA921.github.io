@@ -1,0 +1,78 @@
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 95%;
+}
+
+.experience__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-grey-100);
+  border-left: 4px solid var(--clr-green);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+}
+
+.experience__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  font-size: 1.4rem;
+  color: var(--clr-green);
+  background-color: var(--clr-green-tint);
+  border-radius: var(--radius-md);
+}
+
+/* Real company logo (replaces the icon placeholder once the file exists) */
+.experience__logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  object-fit: contain; /* logos should never be cropped */
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.experience__role {
+  font-size: 1.15rem;
+  color: var(--clr-text);
+}
+
+.experience__company {
+  margin-top: 0.15rem;
+  font-weight: 600;
+  color: var(--clr-green-dark);
+}
+
+.experience__period {
+  font-weight: 400;
+  color: var(--clr-text-muted);
+}
+
+.experience__bullets {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+  color: var(--clr-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.experience__bullets li::marker {
+  color: var(--clr-gold-dark);
+}
+
+@media (max-width: 540px) {
+  .experience__card {
+    flex-direction: column;
+  }
+}

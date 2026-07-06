@@ -1,0 +1,51 @@
+.footer {
+  /* Constant deep green — same in light and dark mode */
+  background-color: var(--clr-green-deep);
+  border-top: 3px solid var(--clr-gold);
+  padding: 1.5rem 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__copy {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.15rem;
+  color: var(--clr-white);
+  border-radius: 50%;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  color: var(--clr-gold);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 540px) {
+  .footer__inner {
+    justify-content: center;
+    text-align: center;
+  }
+}

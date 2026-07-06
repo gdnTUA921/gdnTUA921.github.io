@@ -1,0 +1,74 @@
+/* Dark green closing section for contrast with the rest of the page.
+   Uses constant deep greens so it looks identical in light and dark mode. */
+.section--dark {
+  background:
+    linear-gradient(160deg, var(--clr-green-deep) 0%, #1b5e3f 100%);
+}
+
+.contact__title {
+  color: var(--clr-white) !important;
+}
+
+.contact__subtitle {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 960px;
+}
+
+.contact__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--clr-white);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.contact__card:hover,
+.contact__card:focus-visible {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--clr-gold);
+  transform: translateY(-3px);
+}
+
+.contact__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  margin-top: 0.5rem;
+}
+
+.contact__value {
+  font-size: 0.98rem;
+  word-break: break-all;
+}
+
+.contact__location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__card:hover {
+    transform: none;
+  }
+}

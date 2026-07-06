@@ -1,0 +1,15 @@
+.about__card {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-grey-100);
+  border-left: 4px solid var(--clr-green);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 2rem;
+  max-width: 95%;
+}
+
+.about__text {
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  text-align: justify;
+}

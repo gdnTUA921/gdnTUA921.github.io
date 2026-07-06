@@ -1,0 +1,131 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition:
+    box-shadow var(--transition-med),
+    transform var(--transition-med);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* ---- 16:9 image banner ----
+   The banner height is locked to the card width: children are absolutely
+   positioned so an image's natural size (e.g. a tall portrait screenshot)
+   can never stretch the banner — every card gets an identical crop. */
+.project-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--clr-green-tint);
+}
+
+/* The zoom button fills the banner so the whole image area is clickable */
+.project-card__media .zoom-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill the banner without distortion */
+}
+
+.project-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--clr-green);
+  background:
+    linear-gradient(135deg, var(--clr-green-tint) 0%, var(--clr-grey-050) 100%);
+}
+
+/* Year badge overlaid on the banner corner */
+.project-card__year {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-green-dark);
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-gold);
+}
+
+/* ---- Card body ---- */
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.4rem;
+  flex-grow: 1;
+}
+
+.project-card__name {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: var(--clr-green-dark);
+}
+
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.project-card__tech .tag {
+  font-size: 0.78rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.project-card__description {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+}
+
+.project-card__links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto; /* pin links to the bottom of the card */
+  padding-top: 0.5rem;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-green-dark); /* readable link green in both themes */
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+  color: var(--clr-gold-dark);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,19 @@
+/* Reset the wrapping button so the image inside looks/lays out as before */
+.zoom-btn {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: var(--radius-md);
+  cursor: zoom-in;
+  line-height: 0;
+}
+
+.zoom-btn img {
+  transition: filter var(--transition-fast);
+}
+
+.zoom-btn:hover img,
+.zoom-btn:focus-visible img {
+  filter: brightness(1.05);
+}

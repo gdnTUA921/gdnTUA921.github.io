@@ -1,0 +1,93 @@
+.certs__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
+}
+
+.certs__group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--clr-green-dark);
+  margin-bottom: 1rem;
+}
+
+.certs__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.certs__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--clr-grey-050);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  transition: border-color var(--transition-fast);
+}
+
+.certs__item:hover {
+  border-color: var(--clr-gold);
+}
+
+/* ---- Certificate thumbnail (image or placeholder) ---- */
+.certs__item .zoom-btn {
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.certs__thumb {
+  width: 112px;
+  height: 84px; /* 4:3, matches typical landscape certificates */
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-grey-200);
+  background-color: var(--clr-white);
+}
+
+.certs__thumb--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  color: var(--clr-green-dark);
+  background: linear-gradient(135deg, var(--clr-green-tint) 0%, var(--clr-surface) 100%);
+}
+
+.certs__item-text {
+  flex-grow: 1;
+}
+
+@media (max-width: 480px) {
+  .certs__item {
+    flex-wrap: wrap;
+  }
+}
+
+.certs__item-title {
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.certs__item-issuer {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+}
+
+.certs__item-year {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--clr-gold-dark);
+  background-color: var(--clr-gold-tint);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+}

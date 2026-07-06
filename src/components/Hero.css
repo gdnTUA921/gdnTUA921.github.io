@@ -1,0 +1,139 @@
+.hero {
+  /* Subtle green wash so the hero stands apart from plain sections */
+  background:
+    linear-gradient(180deg, var(--clr-green-tint) 0%, var(--clr-bg) 100%);
+  padding: 5rem 0 4.5rem;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero__text {
+  max-width: 620px;
+}
+
+.hero__greeting {
+  font-weight: 600;
+  color: var(--clr-gold-dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.hero__name {
+  font-size: clamp(2.2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+  color: var(--clr-green-dark);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.hero__tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.hero__blurb {
+  margin-top: 1rem;
+  color: var(--clr-text-muted);
+  max-width: 52ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.hero__socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.hero__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3rem;
+  color: var(--clr-green-dark);
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-grey-200);
+  border-radius: 50%;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero__social-link:hover,
+.hero__social-link:focus-visible {
+  color: var(--clr-white);
+  background-color: var(--clr-green);
+  border-color: var(--clr-gold);
+  transform: translateY(-2px);
+}
+
+/* ---- Profile photo ---- */
+.hero__photo-wrap {
+  flex-shrink: 0;
+}
+
+/* Round the zoom button/outline to match the circular photo */
+.hero__photo-wrap .zoom-btn {
+  border-radius: 50%;
+}
+
+.hero__photo {
+  width: clamp(220px, 26vw, 320px);
+  height: clamp(220px, 26vw, 320px);
+  border-radius: 50%;
+  object-fit: cover; /* keeps the photo from distorting */
+  border: 6px solid var(--clr-surface);
+  box-shadow:
+    0 0 0 3px var(--clr-gold),
+    var(--shadow-card-hover);
+}
+
+/* Neutral placeholder frame (initials) until the real photo is added */
+.hero__photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Constant deep-green gradient — looks right in both themes */
+  background: linear-gradient(135deg, #1b5e3f 0%, var(--clr-green-deep) 100%);
+  color: var(--clr-white);
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Mobile: stack the photo above the text ---- */
+@media (max-width: 820px) {
+  .hero {
+    padding: 3.5rem 0;
+  }
+
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero__blurb {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions,
+  .hero__socials {
+    justify-content: center;
+  }
+}

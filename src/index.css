@@ -1,0 +1,263 @@
+/* ============================================================
+   Global styles: design tokens, reset, and shared utilities
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Color palette (university colors) ----
+     Tweak the whole site's look from these variables.
+     Dark mode overrides live in the [data-theme='dark'] block below. */
+  --clr-green: #1b5e3f; /* primary: deep forest/emerald green */
+  --clr-green-dark: #133f2b; /* hover / emphasis / green text & headings */
+  --clr-green-deep: #133f2b; /* always-dark green (footer/contact bg) — same in both themes */
+  --clr-green-tint: #e9f2ee; /* very light green wash for subtle backgrounds */
+  --clr-gold: #c9a227; /* secondary: gold — accents & highlights, used sparingly */
+  --clr-gold-dark: #8a6d1d; /* gold that passes WCAG AA as text on white */
+  --clr-gold-tint: #faf4e0; /* pale gold wash */
+  --clr-white: #ffffff; /* always white (text/UI on dark green) — same in both themes */
+  --clr-bg: #ffffff; /* page background */
+  --clr-surface: #ffffff; /* cards, navbar, elevated surfaces */
+  --clr-grey-050: #f5f7f6; /* light grey: alternating section backgrounds */
+  --clr-grey-100: #e8ecea; /* card borders / separators */
+  --clr-grey-200: #d3dad6; /* stronger separators */
+  --clr-text: #1f2933; /* near-black body text (AA on white & grey-050) */
+  --clr-text-muted: #4b5a66; /* secondary text (AA on white & grey-050) */
+
+  /* ---- Typography ---- */
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+
+  /* ---- Layout ---- */
+  --container-max: 1100px;
+  --navbar-height: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 3px rgba(18, 38, 27, 0.08), 0 4px 14px rgba(18, 38, 27, 0.06);
+  --shadow-card-hover: 0 4px 10px rgba(18, 38, 27, 0.1), 0 12px 28px rgba(18, 38, 27, 0.12);
+
+  /* ---- Motion ---- */
+  --transition-fast: 0.18s ease;
+  --transition-med: 0.3s ease;
+}
+
+/* ---- Dark theme ----
+   Activated via <html data-theme="dark"> (navbar toggle / OS preference). */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --clr-green: #27835a; /* medium green: keeps white button text AA */
+  --clr-green-dark: #8fd4b2; /* light green for headings/links on dark */
+  --clr-green-tint: rgba(63, 185, 127, 0.14);
+  --clr-gold: #d4af37;
+  --clr-gold-dark: #e0c36a; /* gold that passes AA as text on dark */
+  --clr-gold-tint: rgba(212, 175, 55, 0.12);
+  --clr-bg: #101613; /* page background: near-black with a green cast */
+  --clr-surface: #18211c; /* cards, navbar, elevated surfaces */
+  --clr-grey-050: #141b17; /* alternating section backgrounds */
+  --clr-grey-100: #263029; /* card borders / separators */
+  --clr-grey-200: #364139;
+  --clr-text: #e7ece9;
+  --clr-text-muted: #a7b3ab;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 4px 10px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color var(--transition-med),
+    color var(--transition-med);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--clr-green-dark); /* deep green in light mode, light green in dark */
+}
+
+/* Anchored sections stop below the sticky navbar when scrolled to */
+section[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 8px);
+}
+
+/* ---- Skip link (visible only when focused) ---- */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--clr-green);
+  color: var(--clr-white);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---- Shared layout utilities ---- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section--grey {
+  background-color: var(--clr-grey-050);
+}
+
+/* Section heading with a short gold underline accent */
+.section__title {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: var(--clr-green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.section__title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background: var(--clr-gold);
+}
+
+.section__subtitle {
+  color: var(--clr-text-muted);
+  margin-bottom: 2.25rem;
+  max-width: 60ch;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--clr-green);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--clr-green-dark);
+  border-color: var(--clr-gold);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--clr-green-dark);
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+  border-color: var(--clr-gold);
+}
+
+/* ---- Tag / pill ---- */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: var(--clr-green-tint);
+  color: var(--clr-green-dark);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.tag:hover {
+  background-color: var(--clr-gold-tint);
+  border-color: var(--clr-gold);
+}
+
+/* ---- Scroll-reveal animation (paired with useReveal hook) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* ---- Focus visibility for keyboard navigation ---- */
+:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 2px;
+}
